@@ -10,13 +10,15 @@ namespace Estructuras_Repetitivas02
             int numeroMayor = 0;
             int numeroMenor = 0;
             int promedio = 0;
+            string temp;
 
             for (int i = 0; i < 10; i++)
             {
                 // Entrada de usuario
                 Console.Write($"Ingrese el numero [{(i+1).ToString("00")}]: ");
                 // Proceso
-                numeroActual = int.Parse(Console.ReadLine() ?? "0");
+                temp = Console.ReadLine() ?? "0";
+                numeroActual = temp.Length == 0 ? 0: int.Parse(temp);
                 if (i == 0){ // Evitar ambiguedades (ej. Todos numeros negativos)
                     numeroMayor = numeroActual;
                     numeroMenor = numeroActual;
@@ -72,7 +74,8 @@ namespace Estructuras_Repetitivas02
             {
                 // Entrada de datos
                 Console.Write("Ingrese el monto de la compra: ");
-                monto = int.Parse(Console.ReadLine() ?? "0");
+                temp = Console.ReadLine() ?? "0";
+                monto = temp.Length == 0 ? 0 : int.Parse(temp);
                 Console.Write("Debe pagar ");
 
                 // Proceso
@@ -97,13 +100,13 @@ namespace Estructuras_Repetitivas02
             //////// EJERCICIO 04 ////////
             Console.WriteLine("\n=== EJERCICIO 04 ===");
             Console.ReadLine();
-            int numero = 0;
-            string temp;
+            int numero;
+            // string temp;
 
             // Entrada de usuario
             Console.Write("Ingrese un numero: ");
-            numero = int.Parse(Console.ReadLine() ?? "0");
-
+            temp = Console.ReadLine() ?? "0";
+            numero = temp.Length == 0 ? 0 : int.Parse(temp);
             Console.WriteLine("""
                 [1] Mostrar los números desde el número ingresado hasta 1
                 [2] Mostrar los múltiplos de 3 hasta el número ingresado
@@ -115,10 +118,9 @@ namespace Estructuras_Repetitivas02
             switch (temp) {
                 case "1":
                     Console.WriteLine(numero);
-                    for (int i = numero; i != 1;)
+                    for (int i = numero; i != 0;)
                     {
-                        if (numero < 0) i++;
-                        else i--;
+                        i = numero < 0 ? i+1 : i-1;
 
                         Console.WriteLine(i);
                     }
@@ -128,8 +130,7 @@ namespace Estructuras_Repetitivas02
                     {
                         if (i % 3 == 0) Console.WriteLine(i);
 
-                        if (numero < 0) i++;
-                        else i--;
+                        i = numero < 0 ? i+1 : i-1;
                     }
                     break;
                 case "3":
@@ -137,8 +138,7 @@ namespace Estructuras_Repetitivas02
                     {
                         if (i % 5 == 0) Console.WriteLine(i);
 
-                        if (numero < 0) i++;
-                        else i--;
+                        i = numero < 0 ? i+1 : i-1;
                     }
                     break;
                 default:
@@ -152,7 +152,8 @@ namespace Estructuras_Repetitivas02
             int filas;
 
             Console.Write("Ingrese el numero de filas: ");
-            filas = int.Parse(Console.ReadLine() ?? "1");
+            temp = Console.ReadLine() ?? "0";
+            filas = temp.Length == 0 ? 0 : int.Parse(temp);
 
             for (int i = 0; i < filas; i++)
             {
